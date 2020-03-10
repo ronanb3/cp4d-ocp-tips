@@ -1,0 +1,10 @@
+site_name: CP4D installation on TEC
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+nav:
+    - Home: index.md
+    - About: about.md
+
