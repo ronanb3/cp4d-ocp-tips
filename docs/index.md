@@ -1,17 +1,9 @@
-# Welcome to MkDocs
+# Welcome to CP4D for TEC
 
-For full documentation visit [mkdocs.org](https://mkdocs.org).
+Here are some docs on how tol install CP4D on TEC environment
 
-## Commands
+## Documents
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs help` - Print this help message.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+* Setting up a TEC environment
+* CP4D 2.5 installation
+* CP4D 3.0 installation

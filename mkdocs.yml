@@ -6,5 +6,8 @@ theme:
     accent: 'blue'
 nav:
     - Home: index.md
-    - About: about.md
-
+    - TEC: tec.md
+    - CP4D 2.5: CP4D2.5.md
+    - CP4D 3.0: CP4D3.0.md
+markdown_extensions:
+    - attr_list
