@@ -426,13 +426,14 @@ wget http://icpfs1.svl.ibm.com/zen/cp4d-builds/2.5.0.0/production/internal/repo.
 <p>Get CPD installer &amp; API keyfor customers :</p>
 <p>from passport advantage (CC3Y1ML) (the bin will download the tgz)</p>
 <p>or get the installer direclty :</p>
-<p><a href="ibm-open-platform.ibm.com/repos/cpd/v2.5/EE/cloudpak4data-ee-v2.5.0.0.tgz">https://ibm-open-platform.ibm.com/repos/cpd/v2.5/EE/cloudpak4data-ee-v2.5.0.0.tgz</a></p>
+<p><a href="https://ibm-open-platform.ibm.com/repos/cpd/v2.5/EE/cloudpak4data-ee-v2.5.0.0.tgz">https://ibm-open-platform.ibm.com/repos/cpd/v2.5/EE/cloudpak4data-ee-v2.5.0.0.tgz</a></p>
 <p>then get your API key :</p>
 <p><a href="https://myibm.ibm.com/products-services/containerlibrary">https://myibm.ibm.com/products-services/containerlibrary</a></p>
 <h2 id="installation-with-nfs">Installation with NFS</h2>
 <p>I did all installation with NFS as an NFS server comes preconfigured. I don't know the status of Portwaorx at the time I write this documentation and if it will become the new standard.</p>
 <h3 id="prereqs">Prereqs</h3>
-<pre><code># ./cpd-linux adm --repo repo.yaml --assembly lite --namespace zen
+<pre><code># chmod a+x ./cpd-linux
+# ./cpd-linux adm --repo repo.yaml --assembly lite --namespace zen
 # ./cpd-linux adm --repo repo.yaml --assembly lite --namespace zen —apply
 </code></pre>
 
