@@ -298,6 +298,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#spark" class="md-nav__link">
+    Spark
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -504,6 +511,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#spark" class="md-nav__link">
+    Spark
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -656,6 +670,7 @@ Already on project &quot;zen&quot; on server &quot;https://192.168.1.101:8443”
 <p>PS : don't forget to connect to the VPN to get access, I often miss this part and wonder why my installation is down ;)</p>
 <p>CP4D 2.5 installation is minimal, even Watson Studio is not installed</p>
 <h2 id="watson-studio">Watson Studio</h2>
+<p>Source : <a href="https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html">https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-ws.html</a></p>
 <p>So now let’s install Watson Studio</p>
 <p>Set the parameter on every node in the cluster:
 echo "vm.max_map_count=262144" &gt;&gt; /etc/sysctl.conf ; sysctl -p</p>
@@ -672,7 +687,12 @@ global:
 </code></pre>
 
 <h3 id="installation_1">Installation</h3>
-<pre><code># ./cpd-linux --repo repo.yaml --assembly dsl --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses —override override.yaml
+<pre><code># ./cpd-linux --repo repo.yaml --assembly wsl --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses —override override.yaml
+</code></pre>
+
+<h3 id="spark">Spark</h3>
+<p>Let's install also Spark engine in order to get Spark environment in Studio</p>
+<pre><code># ./cpd-linux --repo repo.yaml --assembly spark --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses —override override.yaml
 </code></pre>
 
 <p>You now have a basic CP4D installation. Let's add some addons now.</p>
