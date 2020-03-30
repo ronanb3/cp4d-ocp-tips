@@ -260,26 +260,81 @@
     Installation with NFS
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prereqs" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-studio" class="md-nav__link">
+    Watson Studio
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prereqs" class="md-nav__link">
+  <a href="#prereqs_1" class="md-nav__link">
     Prereqs
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#installation_1" class="md-nav__link">
     Installation
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-knowledge-catalog" class="md-nav__link">
+    Watson Knowledge Catalog
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#watson-studio" class="md-nav__link">
-    Watson Studio
+  <a href="#prereqs_2" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-configuration" class="md-nav__link">
+    Kernel configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration" class="md-nav__link">
+    Cluster configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -364,26 +419,81 @@
     Installation with NFS
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prereqs" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-studio" class="md-nav__link">
+    Watson Studio
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#prereqs" class="md-nav__link">
+  <a href="#prereqs_1" class="md-nav__link">
     Prereqs
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
+  <a href="#installation_1" class="md-nav__link">
     Installation
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-knowledge-catalog" class="md-nav__link">
+    Watson Knowledge Catalog
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
-  <a href="#watson-studio" class="md-nav__link">
-    Watson Studio
+  <a href="#prereqs_2" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-configuration" class="md-nav__link">
+    Kernel configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration" class="md-nav__link">
+    Cluster configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" class="md-nav__link">
+    Installation
   </a>
   
 </li>
@@ -431,14 +541,14 @@ wget http://icpfs1.svl.ibm.com/zen/cp4d-builds/2.5.0.0/production/internal/repo.
 <p><a href="https://myibm.ibm.com/products-services/containerlibrary">https://myibm.ibm.com/products-services/containerlibrary</a></p>
 <h2 id="installation-with-nfs">Installation with NFS</h2>
 <p>I did all installation with NFS as an NFS server comes preconfigured. I don't know the status of Portwaorx at the time I write this documentation and if it will become the new standard.</p>
-<h3 id="prereqs">Prereqs</h3>
+<h2 id="prereqs">Prereqs</h2>
 <pre><code># chmod a+x ./cpd-linux
 # ./cpd-linux adm --repo repo.yaml --assembly lite --namespace zen
 # ./cpd-linux adm --repo repo.yaml --assembly lite --namespace zen —apply
 </code></pre>
 
 <p>Zen projects is created by the script</p>
-<h3 id="installation">Installation</h3>
+<h2 id="installation">Installation</h2>
 <pre><code># oc project zen
 
 Already on project &quot;zen&quot; on server &quot;https://192.168.1.101:8443”.
@@ -451,7 +561,7 @@ Already on project &quot;zen&quot; on server &quot;https://192.168.1.101:8443”
 <p>The default login is admin / password</p>
 <p>PS : don't forget to connect to the VPN to get access, I often miss this part and wonder why my installation is down ;)</p>
 <p>CP4D 2.5 installation is minimal, even Watson Studio is not installed</p>
-<h3 id="watson-studio">Watson Studio</h3>
+<h2 id="watson-studio">Watson Studio</h2>
 <p>So now let’s install Watson Studio</p>
 <p>Set the parameter on every node in the cluster:
 echo "vm.max_map_count=262144" &gt;&gt; /etc/sysctl.conf ; sysctl -p</p>
@@ -462,16 +572,42 @@ global:
     masterTimezone: 'Europe/Paris'
 </code></pre>
 
-<p>Prereqs</p>
+<h3 id="prereqs_1">Prereqs</h3>
 <pre><code># ./cpd-linux adm --repo repo.yaml  --assembly wsl --namespace zen --apply
 # ./cpd-linux adm --repo repo.yaml  --assembly wsl --namespace zen
 </code></pre>
 
-<p>Installation</p>
+<h3 id="installation_1">Installation</h3>
 <pre><code># ./cpd-linux --repo repo.yaml --assembly dsl --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses —override override.yaml
 </code></pre>
 
 <p>You now have a basic CP4D installation. I will add the addons installation documents later.</p>
+<h2 id="watson-knowledge-catalog">Watson Knowledge Catalog</h2>
+<p>Source : <a href="https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-wkc.html">https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-wkc.html</a></p>
+<h3 id="prereqs_2">Prereqs</h3>
+<p>Add the following line in /etc/security/limits.conf</p>
+<pre><code># vi /etc/security/limits.conf
+[…]
+*               hard    nofile          66560
+*               soft    nofile          66560
+</code></pre>
+
+<h3 id="kernel-configuration">Kernel configuration</h3>
+<p>Update kernel on all server (Masters and workers)</p>
+<pre><code># echo &quot;kernel.sem = 250 1024000 32 4096&quot; &gt;&gt; /etc/sysctl.conf ; sysctl -p
+# echo &quot;kernel.msgmax = 65536&quot; &gt;&gt; /etc/sysctl.conf ; sysctl -p
+# echo &quot;kernel.msgmnb = 65536&quot; &gt;&gt; /etc/sysctl.conf ; sysctl -p
+# ipcs -l
+</code></pre>
+
+<h3 id="cluster-configuration">Cluster configuration</h3>
+<pre><code># ./cpd-linux adm --repo repo.yaml  --assembly wkc --namespace zen —apply
+# ./cpd-linux adm --repo repo.yaml  --assembly wkc --namespace zen
+</code></pre>
+
+<h3 id="installation_2">Installation</h3>
+<pre><code># ./cpd-linux --repo repo.yaml --assembly wkc --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses --override override.yaml --ask-pull-registry-credentials
+</code></pre>
                 
                   
                 
