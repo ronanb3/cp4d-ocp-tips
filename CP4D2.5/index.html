@@ -344,6 +344,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#watson-openscale" class="md-nav__link">
+    Watson OpenScale
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration_1" class="md-nav__link">
+    Cluster configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_3" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-initializing-source-docker" class="md-nav__link">
+    Error initializing source docker...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -503,6 +550,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#watson-openscale" class="md-nav__link">
+    Watson OpenScale
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration_1" class="md-nav__link">
+    Cluster configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_3" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-initializing-source-docker" class="md-nav__link">
+    Error initializing source docker...
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -581,7 +675,7 @@ global:
 <pre><code># ./cpd-linux --repo repo.yaml --assembly dsl --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses —override override.yaml
 </code></pre>
 
-<p>You now have a basic CP4D installation. I will add the addons installation documents later.</p>
+<p>You now have a basic CP4D installation. Let's add some addons now.</p>
 <h2 id="watson-knowledge-catalog">Watson Knowledge Catalog</h2>
 <p>Source : <a href="https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-wkc.html">https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/wsj/install/install-wkc.html</a></p>
 <h3 id="prereqs_2">Prereqs</h3>
@@ -608,6 +702,23 @@ global:
 <h3 id="installation_2">Installation</h3>
 <pre><code># ./cpd-linux --repo repo.yaml --assembly wkc --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses --override override.yaml --ask-pull-registry-credentials
 </code></pre>
+
+<h2 id="watson-openscale">Watson OpenScale</h2>
+<p>Source : <a href="https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/openscale/openscale-install.html">https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/openscale/openscale-install.html</a></p>
+<h3 id="cluster-configuration_1">Cluster configuration</h3>
+<pre><code># ./cpd-linux adm --repo repo.yaml  --assembly aiopenscale --namespace zen —apply
+# ./cpd-linux adm --repo repo.yaml  --assembly aiopenscale --namespace zen
+</code></pre>
+
+<h3 id="installation_3">Installation</h3>
+<pre><code># ./cpd-linux --repo repo.yaml --assembly aiopenscale --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses --override override.yaml --ask-pull-registry-credentials
+</code></pre>
+
+<h2 id="tips">Tips</h2>
+<p>Here are some tips on installation and issue solving</p>
+<h3 id="error-initializing-source-docker">Error initializing source docker...</h3>
+<p>If you have an issue like "Error initializing source docker://cp.icr.io/cp/cpd/zen-meta-couchdb:v2.5.0.0-210: unable to retrieve auth token: invalid username/password”, check the credentials in repo.yaml.</p>
+<p>They change sometimes so refresh the repo.yaml, or better use the myibm key from https://myibm.ibm.com/products-services/containerlibrary. Username is cp in this case.</p>
                 
                   
                 
