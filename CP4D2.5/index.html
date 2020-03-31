@@ -379,6 +379,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#watson-machine-learning" class="md-nav__link">
+    Watson Machine Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     Tips
   </a>
@@ -389,6 +396,13 @@
           <li class="md-nav__item">
   <a href="#error-initializing-source-docker" class="md-nav__link">
     Error initializing source docker...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-restart" class="md-nav__link">
+    Full restart
   </a>
   
 </li>
@@ -592,6 +606,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#watson-machine-learning" class="md-nav__link">
+    Watson Machine Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     Tips
   </a>
@@ -602,6 +623,13 @@
           <li class="md-nav__item">
   <a href="#error-initializing-source-docker" class="md-nav__link">
     Error initializing source docker...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-restart" class="md-nav__link">
+    Full restart
   </a>
   
 </li>
@@ -734,11 +762,20 @@ global:
 <pre><code># ./cpd-linux --repo repo.yaml --assembly aiopenscale --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses --override override.yaml --ask-pull-registry-credentials
 </code></pre>
 
+<h2 id="watson-machine-learning">Watson Machine Learning</h2>
+<p>Source : <a href="https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/wsj/ml-install.html">https://www.ibm.com/support/producthub/icpdata/docs/content/SSQNUZ_current/cpd/svc/wsj/ml-install.html</a></p>
+<pre><code># ./cpd-linux --repo repo.yaml --assembly wml --namespace zen -c nfs-client --transfer-image-to=docker-registry.default.svc:5000/zen --target-registry-username=$(oc whoami) --target-registry-password=$(oc whoami -t) --accept-all-licenses --override override.yaml --ask-pull-registry-credentials
+</code></pre>
+
 <h2 id="tips">Tips</h2>
 <p>Here are some tips on installation and issue solving</p>
 <h3 id="error-initializing-source-docker">Error initializing source docker...</h3>
 <p>If you have an issue like "Error initializing source docker://cp.icr.io/cp/cpd/zen-meta-couchdb:v2.5.0.0-210: unable to retrieve auth token: invalid username/password”, check the credentials in repo.yaml.</p>
 <p>They change sometimes so refresh the repo.yaml, or better use the myibm key from https://myibm.ibm.com/products-services/containerlibrary. Username is cp in this case.</p>
+<h3 id="full-restart">Full restart</h3>
+<p>In some case, debugging a single pod is not enough. I sometimes restart all CP4D with this command to restar all the pods.</p>
+<p><code># oc delete pods -n zen --all</code></p>
+<p>It may take a while to restart all the pods, depending on the number of addons you have installed.</p>
                 
                   
                 
