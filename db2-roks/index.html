@@ -633,6 +633,8 @@ Using project &quot;cp4d&quot;.
 $ oc project cp4d
 Already on project &quot;cp4d&quot; on server &quot;https://c100-e.eu-de.containers.cloud.ibm.com:NNNNN&quot;
 </code></pre>
+<p>Find the pods for your database. In the Databases &gt; Details page, find the Deployment id.</p>
+<p><img alt="Database Details" border="2" src="/Users/ronan/Dev/cp4d-ocp-tips/docs/img/database_details.png" width="300px" /></p>
 <p>I did all actions from the master server (second server in the list) through ssh. You can connect through the second public IP (10.99.mmm.nnn). Then all installation is done through the internal IP (192.168.1.nnn)</p>
 <p><code>$ ssh root@10.99.mmm.nnn</code></p>
 <p>for each prereqs, I test them with the --apply option to check what will be done and then I apply them.</p>
