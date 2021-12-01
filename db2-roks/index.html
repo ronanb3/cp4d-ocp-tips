@@ -14,7 +14,7 @@
     
     
       
-        <title>CP4D 2.5 installation on TEC - Tips for CP4D and OpenShift</title>
+        <title>Db2 on ROKS Gen2 - Tips for CP4D and OpenShift</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cp4d-25-installation-on-tec" class="md-skip">
+        <a href="#view-db2-databases-externally-from-a-cp4d-installed-on-roks-vpc-gen2" class="md-skip">
           Skip to content
         </a>
       
@@ -91,7 +91,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              CP4D 2.5 installation on TEC
+              Db2 on ROKS Gen2
             
           </span>
         </div>
@@ -175,11 +175,226 @@
       
       
 
+  
 
-  <li class="md-nav__item">
-    <a href="../db2-roks/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Db2 on ROKS Gen2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Db2 on ROKS Gen2
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#downloads" class="md-nav__link">
+    Downloads
+  </a>
+  
+    <nav class="md-nav" aria-label="Downloads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-ibmers" class="md-nav__link">
+    For IBMers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-clients" class="md-nav__link">
+    For clients
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-with-nfs" class="md-nav__link">
+    Installation with NFS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prereqs" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-studio" class="md-nav__link">
+    Watson Studio
+  </a>
+  
+    <nav class="md-nav" aria-label="Watson Studio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prereqs_1" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_1" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spark" class="md-nav__link">
+    Spark
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-knowledge-catalog" class="md-nav__link">
+    Watson Knowledge Catalog
+  </a>
+  
+    <nav class="md-nav" aria-label="Watson Knowledge Catalog">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prereqs_2" class="md-nav__link">
+    Prereqs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernel-configuration" class="md-nav__link">
+    Kernel configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration" class="md-nav__link">
+    Cluster configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_2" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-openscale" class="md-nav__link">
+    Watson OpenScale
+  </a>
+  
+    <nav class="md-nav" aria-label="Watson OpenScale">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cluster-configuration_1" class="md-nav__link">
+    Cluster configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation_3" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watson-machine-learning" class="md-nav__link">
+    Watson Machine Learning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tips" class="md-nav__link">
+    Tips
+  </a>
+  
+    <nav class="md-nav" aria-label="Tips">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-initializing-source-docker" class="md-nav__link">
+    Error initializing source docker...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-restart" class="md-nav__link">
+    Full restart
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -403,7 +618,21 @@
               
                 
                 
-                <h1 id="cp4d-25-installation-on-tec">CP4D 2.5 installation on TEC</h1>
+                <h1 id="view-db2-databases-externally-from-a-cp4d-installed-on-roks-vpc-gen2">View Db2 databases externally from a CP4D installed on ROKS VPC Gen2</h1>
+<p>A specificity from ROKS VPC Gen2 in IBM Cloud is the security level. The node servers don't have an external IP address and cannot be accessed externally.</p>
+<p>Once you have installed Db2 in CP4D, the usual way to vie the database externally is by using NodePort access. In our case this is not working since the node cannot be viewed externally. The solution is to use a Load Balancer that needs to be added.</p>
+<p>Here is the procedure.</p>
+<p>Log in to Openshift environment and go to your CP4D project.</p>
+<pre><code>$ oc login -u apikey -p XXXXXXXX --server=https://c100-e.eu-de.containers.cloud.ibm.com:NNNN
+Login successful.
+
+You have access to 69 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+Using project &quot;cp4d&quot;.
+
+$ oc project cp4d
+Already on project &quot;cp4d&quot; on server &quot;https://c100-e.eu-de.containers.cloud.ibm.com:NNNNN&quot;
+</code></pre>
 <p>I did all actions from the master server (second server in the list) through ssh. You can connect through the second public IP (10.99.mmm.nnn). Then all installation is done through the internal IP (192.168.1.nnn)</p>
 <p><code>$ ssh root@10.99.mmm.nnn</code></p>
 <p>for each prereqs, I test them with the --apply option to check what will be done and then I apply them.</p>
@@ -523,6 +752,27 @@ global:
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
