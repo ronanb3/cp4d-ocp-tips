@@ -1,4 +1,4 @@
-site_name: CP4D installation on TEC
+site_name: Tips for CP4D and OpenShift
 theme:
   name: 'material'
   palette:
@@ -6,8 +6,6 @@ theme:
     accent: 'blue'
 nav:
     - Home: index.md
-    - TEC: tec.md
-    - CP4D 2.5: CP4D2.5.md
-    - CP4D 3.0: CP4D3.0.md
+    - Db2 on ROKS Gen2 : db2-roks.md
 markdown_extensions:
     - attr_list
