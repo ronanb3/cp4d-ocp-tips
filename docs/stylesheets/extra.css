@@ -1,0 +1,7 @@
+.md-content img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  border: 2px;
+}
