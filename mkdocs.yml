@@ -1,4 +1,4 @@
-site_name: Tips for CP4D and OpenShift
+site_name: Tips for CP4D and OpenShift (Public)
 theme:
   name: 'material'
   palette:
@@ -9,3 +9,11 @@ nav:
     - Db2 on ROKS Gen2 : db2-roks.md
 markdown_extensions:
     - attr_list
+extra:
+  social:
+  - icon: fontawesome/brands/linkedin
+    link: https://www.linkedin.com/in/ronanbourlier/
+  - icon: fontawesome/brands/twitter
+    link: https://twitter.com/infrarchitect
+extra_css:
+  - stylesheets/extra.css
