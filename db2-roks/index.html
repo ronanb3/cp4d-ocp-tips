@@ -242,56 +242,55 @@ Already on project &quot;cp4d&quot; on server &quot;https://c100-e.eu-de.contain
 <p>Note down the deployment id as it it will used all along the procedure. In this case <code>db2oltp-1638208426839597</code></p>
 <p>Because a VPC in IBM Cloud is oriented toward security, workers nodes are not visible from outside of its LAN. We cannot use a regular NodePort service. Let's use a LoadBalancer service in this case.</p>
 <p>Here is the example file</p>
-<p>``` yaml title="lb-db2.py"
-apiVersion: v1
-kind: Service
-metadata:
-  name: lb-db2-2
-  annotations:
-    service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: "public"
-spec:
-  ports:
-  - name: db
-    protocol: TCP
-    port: 51000
-    targetPort: 50000
-  - name: db-ssl
-    protocol: TCP
-    port: 51001
-    targetPort: 50001
-  type: LoadBalancer
-  selector:
-    app: db2oltp-1638208426839597
-    component: db2oltp
-    formation_id: db2oltp-1638208426839597
-    role: db
-    type: engine
-<div class="highlight"><pre><span></span><code>Some explanations.
-- metadata.name : use the name you want. I personaly use `lb-` followed by the name of my database
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Service</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">lb-db2-2</span>
+  <span class="nt">annotations</span><span class="p">:</span>
+    <span class="nt">service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type</span><span class="p">:</span> <span class="s">&quot;public&quot;</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">ports</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+    <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">51000</span>
+    <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50000</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db-ssl</span>
+    <span class="nt">protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">TCP</span>
+    <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">51001</span>
+    <span class="nt">targetPort</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50001</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">LoadBalancer</span>
+  <span class="nt">selector</span><span class="p">:</span>
+    <span class="nt">app</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db2oltp-1638208426839597</span>
+    <span class="nt">component</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db2oltp</span>
+    <span class="nt">formation_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db2oltp-1638208426839597</span>
+    <span class="nt">role</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">engine</span>
+</code></pre></div>
+<p>Some explanations.
+- metadata.name : use the name you want. I personaly use <code>lb-</code> followed by the name of my database
 - ports : ports name are the one you want. I keep it to db and db-ssl to know what it is. I this example I create 2 ports in my load balancer forwarding to internal database port. The external port 51000 forwards to the non SSL 50000 database port. the external port 51001 forwards to the SSL 50001 database port.
-- selector: `app` and `formation_id` point to the `deployment id` we noted down earlier.
+- selector: <code>app</code> and <code>formation_id</code> point to the <code>deployment id</code> we noted down earlier.</p>
+<p>Once your file configured and saved as <code>lb-db2.yaml</code>, let's use it.</p>
+<div class="highlight"><pre><span></span><code>$ oc create -f db2-lb.yaml
+service/lb-db2-2 created
 
-Once your file configured and saved as `lb-db2.yaml`, let&#39;s use it.
-</code></pre></div>
-$ oc create -f db2-lb.yaml
-service/lb-db2-2 created</p>
-<p>$ oc get svc lb-db2-2
-NAME       TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                           AGE
-lb-db2-2   LoadBalancer   172.21.100.200   <pending>     51000:32149/TCP,51001:32514/TCP   17s
-<div class="highlight"><pre><span></span><code>This command will trigger the creation of a Load Balancer in VPC
-
-Once the load balancer is created, you get all information in the command line.
-</code></pre></div>
 $ oc get svc lb-db2-2
+NAME       TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                           AGE
+lb-db2-2   LoadBalancer   172.21.100.200   &lt;pending&gt;     51000:32149/TCP,51001:32514/TCP   17s
+</code></pre></div>
+<p>This command will trigger the creation of a Load Balancer in VPC</p>
+<p>Once the load balancer is created, you get all information in the command line.</p>
+<div class="highlight"><pre><span></span><code>$ oc get svc lb-db2-2
 NAME       TYPE           CLUSTER-IP       EXTERNAL-IP                         PORT(S)                           AGE
 lb-db2-2   LoadBalancer   172.21.100.200   fbec480d-eu-de.lb.appdomain.cloud   51000:32149/TCP,51001:32514/TCP   21m
-<div class="highlight"><pre><span></span><code>With this command you get the domain name to connect to your database. In our case `fbec480d-eu-de.lb.appdomain.cloud`and you can test it.
 </code></pre></div>
-$ nc -zv fbec480d-eu-de.lb.appdomain.cloud 51000
-Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51000 port [tcp/*] succeeded!</p>
-<p>$ nc -zv fbec480d-eu-de.lb.appdomain.cloud 51001
+<p>With this command you get the domain name to connect to your database. In our case <code>fbec480d-eu-de.lb.appdomain.cloud</code>and you can test it.</p>
+<div class="highlight"><pre><span></span><code>$ nc -zv fbec480d-eu-de.lb.appdomain.cloud 51000
+Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51000 port [tcp/*] succeeded!
+
+$ nc -zv fbec480d-eu-de.lb.appdomain.cloud 51001
 Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51001 port [tcp/*] succeeded!
-```</p>
+</code></pre></div>
 <p>This is the best solution for now and I am still trying to find an easier solution since this one needs to be done for each database created that need an external access.</p>
 <h1 id="connexion-from-a-ide">Connexion from a IDE</h1>
 <p>Here is an example of a connexion through an IDE. I use DBeaver.</p>
