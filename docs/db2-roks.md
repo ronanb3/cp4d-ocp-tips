@@ -30,7 +30,7 @@ Because a VPC in IBM Cloud is oriented toward security, workers nodes are not vi
 
 Here is the example file
 
-```
+``` yaml title="lb-db2.py"
 apiVersion: v1
 kind: Service
 metadata:
@@ -94,11 +94,19 @@ Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51001 port [tcp/
 
 This is the best solution for now and I am still trying to find an easier solution since this one needs to be done for each database created that need an external access.
 
+# Connexion from a IDE
+
+Here is an example of a connexion through an IDE. I use DBeaver.
+
+![DBeaver_properties](img/DBeaver_properties.png)
+
+![DBeaver_result](img/DBeaver_result.png)
+
 # More details
 
-If you need more details on the load balancer, you can find them in the VPC load balancer
+If you need more details on the load balancer, you can find it in the VPC load balancer
 
-![LB Created](img/lb_created.png)
+![LB Created](img/LB_created.png)
 
 
 
