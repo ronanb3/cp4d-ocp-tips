@@ -30,7 +30,7 @@ Because a VPC in IBM Cloud is oriented toward security, workers nodes are not vi
 
 Here is the example file
 
-``` yaml title="lb-db2.py"
+``` yaml
 apiVersion: v1
 kind: Service
 metadata:
