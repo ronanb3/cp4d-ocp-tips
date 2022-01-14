@@ -187,9 +187,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Db2 on ROKS Gen2
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
     <a href="./" class="md-nav__link md-nav__link--active">
       Db2 on ROKS Gen2
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connexion-from-a-ide" class="md-nav__link">
+    Connexion from a IDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-details" class="md-nav__link">
+    More details
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -210,6 +246,28 @@
   
     
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connexion-from-a-ide" class="md-nav__link">
+    Connexion from a IDE
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-details" class="md-nav__link">
+    More details
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -292,11 +350,11 @@ $ nc -zv fbec480d-eu-de.lb.appdomain.cloud 51001
 Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51001 port [tcp/*] succeeded!
 </code></pre></div>
 <p>This is the best solution for now and I am still trying to find an easier solution since this one needs to be done for each database created that need an external access.</p>
-<h1 id="connexion-from-a-ide">Connexion from a IDE</h1>
+<h2 id="connexion-from-a-ide">Connexion from a IDE</h2>
 <p>Here is an example of a connexion through an IDE. I use DBeaver.</p>
 <p><img alt="DBeaver_properties" src="../img/DBeaver_properties.png" /></p>
 <p><img alt="DBeaver_result" src="../img/DBeaver_result.png" /></p>
-<h1 id="more-details">More details</h1>
+<h2 id="more-details">More details</h2>
 <p>If you need more details on the load balancer, you can find it in the VPC load balancer</p>
 <p><img alt="LB Created" src="../img/LB_created.png" /></p>
                 
@@ -339,6 +397,10 @@ Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51001 port [tcp/
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
         
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2022 IBM - Ronan Bourlier
+          </div>
+        
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
           Material for MkDocs
@@ -379,7 +441,7 @@ Connection to fbec480d-eu-de.lb.appdomain.cloud (158.177.15.62) 51001 port [tcp/
       <script>
         app = initialize({
           base: "..",
-          features: [],
+          features: ['navigation.indexes'],
           search: Object.assign({
             worker: "../assets/javascripts/worker/search.4ac00218.min.js"
           }, typeof search !== "undefined" && search)
