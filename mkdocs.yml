@@ -4,6 +4,8 @@ theme:
   palette:
     primary: 'blue'
     accent: 'blue'
+  features:
+    - navigation.indexes
 nav:
     - Home: index.md
     - Db2 on ROKS Gen2 : db2-roks.md
@@ -22,3 +24,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+plugins:
+  - search
+copyright: Copyright &copy; 2022 IBM - Ronan Bourlier
