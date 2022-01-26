@@ -6,6 +6,8 @@ theme:
     accent: 'blue'
   features:
     - navigation.indexes
+  logo: img/icp4data_blanc.svg
+  favicon: img/favicon.png
 nav:
     - Home: index.md
     - Db2 on ROKS Gen2 : db2-roks.md
