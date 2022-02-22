@@ -234,9 +234,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-log-to-roks-openshift-from-cli" class="md-nav__link">
-    How to log to ROKS OpenShift from CLI
+  <a href="#how-to-log-to-roks-openshift-from-cli-with-an-api-key" class="md-nav__link">
+    How to log to ROKS OpenShift from CLI with an API key
   </a>
+  
+    <nav class="md-nav" aria-label="How to log to ROKS OpenShift from CLI with an API key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-ibmcloud-command" class="md-nav__link">
+    Install ibmcloud command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-to-your-ibm-cloud" class="md-nav__link">
+    Login to your IBM Cloud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -285,9 +305,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-to-log-to-roks-openshift-from-cli" class="md-nav__link">
-    How to log to ROKS OpenShift from CLI
+  <a href="#how-to-log-to-roks-openshift-from-cli-with-an-api-key" class="md-nav__link">
+    How to log to ROKS OpenShift from CLI with an API key
   </a>
+  
+    <nav class="md-nav" aria-label="How to log to ROKS OpenShift from CLI with an API key">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-ibmcloud-command" class="md-nav__link">
+    Install ibmcloud command
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#login-to-your-ibm-cloud" class="md-nav__link">
+    Login to your IBM Cloud
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -316,7 +356,7 @@
 <p>Rename the file for easier management</p>
 <div class="highlight"><pre><span></span><code>mv oc-4.9.21-linux.tar.gz<span class="se">\?</span>user<span class="se">\=</span>c1223590990cfd8b164b125451ffffff<span class="se">\&amp;</span>_auth_<span class="se">\=</span>1645565566_0d7edf2fef35f7623fa3dd411c310666 oc-4.9.21-linux.tar.gz
 </code></pre></div>
-<p>(NB : I changed the content to vois giing up my user id and auth)</p>
+<p>(NB : I changed the content to avoid giving up my user id and auth)</p>
 <p>Unzip the file</p>
 <div class="highlight"><pre><span></span><code>tar xvzf oc-4.9.21-linux.tar.gz
 </code></pre></div>
@@ -328,11 +368,89 @@
 Client Version: <span class="m">4</span>.9.21
 error: You must be logged in to the server <span class="o">(</span>Unauthorized<span class="o">)</span>
 </code></pre></div>
-<p>Source : <a href="https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html">Red Hat OpenShify documentation</a></p>
+<p>The error appears if you are not logged in so don't worry.</p>
+<p>Source : <a href="https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html">Red Hat OpenShift documentation</a></p>
 <h2 id="bash-completion">bash completion</h2>
 <p>TBD</p>
-<h2 id="how-to-log-to-roks-openshift-from-cli">How to log to ROKS OpenShift from CLI</h2>
+<h2 id="how-to-log-to-roks-openshift-from-cli-with-an-api-key">How to log to ROKS OpenShift from CLI with an API key</h2>
 <p>ROKS doesn't allow using <code>oc login</code> with username and password to log in in OpenShift. Here is the solution to get a <code>oc login</code> that works all the time without having to go through the Web interface every day.</p>
+<h3 id="install-ibmcloud-command">Install ibmcloud command</h3>
+<div class="highlight"><pre><span></span><code>curl -fsSL https://clis.cloud.ibm.com/install/linux <span class="p">|</span> sh
+
+ibmcloud plugin install container-service
+
+ibmcloud plugin install container-registry
+
+ibmcloud plugin install observe-service
+</code></pre></div>
+<h3 id="login-to-your-ibm-cloud">Login to your IBM Cloud</h3>
+<div class="highlight"><pre><span></span><code>$ ibmcloud login -sso
+API endpoint: https://cloud.ibm.com
+Region: eu-de
+
+Get a one-time code from https://identity-2.uk-south.iam.cloud.ibm.com/identity/passcode to proceed.
+Open the URL in the default browser? <span class="o">[</span>Y/n<span class="o">]</span> &gt; n
+One-time code &gt;
+Authenticating...
+OK
+
+Select an account:
+<span class="m">1</span>. Ronan Bourlier<span class="s1">&#39;s Account (b02822e1d9cb5263f3d06ffffdcd9793) &lt;-&gt; 1687099</span>
+<span class="s1">2. WATSON CMCIC (e443898b246db06ab7af7a5ef0498e89)</span>
+<span class="s1">[...]</span>
+<span class="s1">Enter a number&gt; 1</span>
+<span class="s1">Targeted account Ronan Bourlier&#39;</span>s Account <span class="o">(</span>b02822e1d9cb5263f3d06ffffdcd9793<span class="o">)</span> &lt;-&gt; <span class="m">1687099</span>
+
+API endpoint:      https://cloud.ibm.com
+Region:            eu-de
+User:              ronan.bourlier@fr.ibm.com
+Account:           Ronan Bourlier<span class="s1">&#39;s Account (b02822e1d9cb5263f3d06ffffdcd9793) &lt;-&gt; 1687099</span>
+<span class="s1">Resource group:    No resource group targeted, use &#39;</span>ibmcloud target -g RESOURCE_GROUP<span class="err">&#39;</span>
+CF API endpoint:
+Org:
+Space:
+</code></pre></div>
+<p>List your clusters and get the ID your are interested in</p>
+<div class="highlight"><pre><span></span><code>$ ibmcloud oc cluster ls
+OK
+Name     ID                     State    Created        Workers   Location    Version                 Resource Group Name   Provider
+prod01   c7sh01kf0sdsn628u6cg   normal   <span class="m">3</span> weeks ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
+prod02   c8ab34rf0s84mif4ffeg   normal   <span class="m">10</span> hours ago   <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
+test01   c80pi0mf05u00m1elfgg   normal   <span class="m">2</span> weeks ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
+test03   c69spr6f0iqs72cnn5jg   normal   <span class="m">3</span> months ago   <span class="m">8</span>         Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
+test04   c7il1kkf09bln89tt09g   normal   <span class="m">1</span> month ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
+</code></pre></div>
+<p>Get URL for API connect
+Select your cluster and get the URL</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>prod02
+<span class="nb">export</span> <span class="nv">MASTER_URL</span><span class="o">=</span><span class="k">$(</span>ibmcloud oc cluster get -c <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;/^URL:/ {print $2}&#39;</span><span class="k">)</span>
+</code></pre></div>
+<p>Create an API key for your environment</p>
+<div class="highlight"><pre><span></span><code>$ ibmcloud iam api-key-create prod02-ocp
+Creating API key prod02-ocp under b02822e1d9cb5263f3d06ffffdcd9793 as ronan.bourlier@fr.ibm.com...
+OK
+API key prod02-ocp was created
+
+Please preserve the API key! It cannot be retrieved after it<span class="err">&#39;</span>s created.
+
+ID            ApiKey-e30537fa-01ab-422f-afbb-68e77dab3bfb
+Name          prod02-ocp
+Description
+Created At    <span class="m">2022</span>-02-22T21:01+0000
+API Key       0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7
+Locked        <span class="nb">false</span>
+</code></pre></div>
+<p>Keep in a safe place the API Key, you cannot retrieve it after. Of course I changed mine in this example ;)</p>
+<p>Login with this key in IBM Cloud</p>
+<div class="highlight"><pre><span></span><code>ibmcloud login --apikey 0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7
+</code></pre></div>
+<p>Get context for your cluster</p>
+<div class="highlight"><pre><span></span><code>ibmcloud oc cluster config -c prod02
+</code></pre></div>
+<p>Now you can login with your API key</p>
+<div class="highlight"><pre><span></span><code>oc login -u apikey -p 0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7 --server<span class="o">=</span>https://c100-e.eu-de.containers.cloud.ibm.com:31683
+</code></pre></div>
+<p>I replaced $MASTER_URL by its value to keep this login in a place to use it easily.</p>
                 
               
               
