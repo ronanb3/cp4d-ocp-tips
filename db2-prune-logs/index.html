@@ -14,7 +14,7 @@
     
     
       
-        <title>Openshift Client - Tips for CP4D and OpenShift (Public)</title>
+        <title>Prune Db2 logs - Tips for CP4D and OpenShift (Public)</title>
       
     
     
@@ -63,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openshift-client-installation-en-tips" class="md-skip">
+        <a href="#prune-db2-databases-logs-to-avoid-out-of-space-issue" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +92,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Openshift Client
+              Prune Db2 logs
             
           </span>
         </div>
@@ -187,6 +187,18 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../oc-client-install/" class="md-nav__link">
+      Openshift Client
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
@@ -198,12 +210,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Openshift Client
+        Prune Db2 logs
         <span class="md-nav__icon md-icon"></span>
       </label>
     
     <a href="./" class="md-nav__link md-nav__link--active">
-      Openshift Client
+      Prune Db2 logs
     </a>
     
       
@@ -220,43 +232,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-oc-client" class="md-nav__link">
-    Install oc client
+  <a href="#in-cp4d-403-lets-turn-auto-prune-archieve_log" class="md-nav__link">
+    In CP4D 4.0.3+, let's turn auto prune archieve_log
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bash-completion" class="md-nav__link">
-    bash completion
+  <a href="#in-cp4d-402-lets-install-a-script-to-remove-old-db2-logs" class="md-nav__link">
+    In CP4D 4.0.2-, let's install a script to remove old db2 logs
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-log-to-roks-openshift-from-cli-with-an-api-key" class="md-nav__link">
-    How to log to ROKS OpenShift from CLI with an API key
-  </a>
-  
-    <nav class="md-nav" aria-label="How to log to ROKS OpenShift from CLI with an API key">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-ibmcloud-command" class="md-nav__link">
-    Install ibmcloud command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-to-your-ibm-cloud" class="md-nav__link">
-    Login to your IBM Cloud
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -264,18 +249,6 @@
   
 </nav>
     
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../db2-prune-logs/" class="md-nav__link">
-      Prune Db2 logs
-    </a>
   </li>
 
     
@@ -303,43 +276,16 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-oc-client" class="md-nav__link">
-    Install oc client
+  <a href="#in-cp4d-403-lets-turn-auto-prune-archieve_log" class="md-nav__link">
+    In CP4D 4.0.3+, let's turn auto prune archieve_log
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bash-completion" class="md-nav__link">
-    bash completion
+  <a href="#in-cp4d-402-lets-install-a-script-to-remove-old-db2-logs" class="md-nav__link">
+    In CP4D 4.0.2-, let's install a script to remove old db2 logs
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-log-to-roks-openshift-from-cli-with-an-api-key" class="md-nav__link">
-    How to log to ROKS OpenShift from CLI with an API key
-  </a>
-  
-    <nav class="md-nav" aria-label="How to log to ROKS OpenShift from CLI with an API key">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-ibmcloud-command" class="md-nav__link">
-    Install ibmcloud command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-to-your-ibm-cloud" class="md-nav__link">
-    Login to your IBM Cloud
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -356,113 +302,57 @@
               
                 
                 
-                <h1 id="openshift-client-installation-en-tips">OpenShift client installation en tips</h1>
-<p>Here are the steps to install the OpenShift client for Linux and some tips ans tricks to manage connexions</p>
-<h2 id="install-oc-client">Install oc client</h2>
-<p>Navigate to the OpenShift Container Platform downloads page on the Red Hat Customer Portal.</p>
-<p>Select the appropriate version in the Version drop-down menu.</p>
-<p>Right Click on "Download Now next to the latest OpenShift Linux Client entry to get the link.</p>
-<p>Download the client with the link and wget. Don't forget the single quote around the URL to avoind issues.</p>
-<div class="highlight"><pre><span></span><code>wget <span class="s1">&#39;https://access.cdn.redhat.com/content/origin/files/sha256/28/2895de3bb4a9d9a68aa6e48c06ffaed21f81c7341a78e81fddd7c50eaca08c1b/oc-4.9.21-linux.tar.gz?user=c1223590990cfd8b164b125451ffffff&amp;_auth_=1645565566_0d7edf2fef35f7623fa3dd411c310666&#39;</span>
-</code></pre></div>
-<p>Rename the file for easier management</p>
-<div class="highlight"><pre><span></span><code>mv oc-4.9.21-linux.tar.gz<span class="se">\?</span>user<span class="se">\=</span>c1223590990cfd8b164b125451ffffff<span class="se">\&amp;</span>_auth_<span class="se">\=</span>1645565566_0d7edf2fef35f7623fa3dd411c310666 oc-4.9.21-linux.tar.gz
-</code></pre></div>
-<p>(NB : I changed the content to avoid giving up my user id and auth)</p>
-<p>Unzip the file</p>
-<div class="highlight"><pre><span></span><code>tar xvzf oc-4.9.21-linux.tar.gz
-</code></pre></div>
-<p>Place the oc binary in a directory that is on your PATH.</p>
-<div class="highlight"><pre><span></span><code>sudo mv oc kubectl /usr/local/bin
-</code></pre></div>
-<p>Check that everything is working</p>
-<div class="highlight"><pre><span></span><code>$ oc version
-Client Version: <span class="m">4</span>.9.21
-error: You must be logged in to the server <span class="o">(</span>Unauthorized<span class="o">)</span>
-</code></pre></div>
-<p>The error appears if you are not logged in so don't worry.</p>
-<p>Source : <a href="https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html">Red Hat OpenShift documentation</a></p>
-<h2 id="bash-completion">bash completion</h2>
-<p>TBD</p>
-<h2 id="how-to-log-to-roks-openshift-from-cli-with-an-api-key">How to log to ROKS OpenShift from CLI with an API key</h2>
-<p>ROKS doesn't allow using <code>oc login</code> with username and password to log in in OpenShift. Here is the solution to get a <code>oc login</code> that works all the time without having to go through the Web interface every day.</p>
-<h3 id="install-ibmcloud-command">Install ibmcloud command</h3>
-<div class="highlight"><pre><span></span><code>curl -fsSL https://clis.cloud.ibm.com/install/linux <span class="p">|</span> sh
+                <h1 id="prune-db2-databases-logs-to-avoid-out-of-space-issue">Prune Db2 databases logs to avoid out of space issue</h1>
+<p>By default, db2 will save logs and there is no log rotation configured by default. This can lead to out of space issue in the PVC (ODF) or worst in the whole storage (NFS)</p>
+<p>Here is the procedure.</p>
+<p>Log in to Openshift environment and go to your CP4D project.</p>
+<div class="highlight"><pre><span></span><code>$ oc login -u apikey -p XXXXXXXX --server=https://c100-e.eu-de.containers.cloud.ibm.com:NNNN
+Login successful.
 
-ibmcloud plugin install container-service
+You have access to 69 projects, the list has been suppressed. You can list all projects with &#39;oc projects&#39;
 
-ibmcloud plugin install container-registry
+Using project &quot;cp4d&quot;.
 
-ibmcloud plugin install observe-service
+$ oc project cp4d
+Already on project &quot;cp4d&quot; on server &quot;https://c100-e.eu-de.containers.cloud.ibm.com:NNNNN&quot;
 </code></pre></div>
-<h3 id="login-to-your-ibm-cloud">Login to your IBM Cloud</h3>
-<div class="highlight"><pre><span></span><code>$ ibmcloud login -sso
-API endpoint: https://cloud.ibm.com
-Region: eu-de
+<h2 id="in-cp4d-403-lets-turn-auto-prune-archieve_log">In CP4D 4.0.3+, let's turn auto prune archieve_log</h2>
+<div class="highlight"><pre><span></span><code>oc rsh c-db2u-dv-db2u-0 bash
 
-Get a one-time code from https://identity-2.uk-south.iam.cloud.ibm.com/identity/passcode to proceed.
-Open the URL in the default browser? <span class="o">[</span>Y/n<span class="o">]</span> &gt; n
-One-time code &gt;
-Authenticating...
-OK
+su - db2inst1
 
-Select an account:
-<span class="m">1</span>. Ronan Bourlier<span class="s1">&#39;s Account (b02822e1d9cb5263f3d06ffffdcd9793) &lt;-&gt; 1687099</span>
-<span class="s1">2. WATSON CMCIC (e443898b246db06ab7af7a5ef0498e89)</span>
-<span class="s1">[...]</span>
-<span class="s1">Enter a number&gt; 1</span>
-<span class="s1">Targeted account Ronan Bourlier&#39;</span>s Account <span class="o">(</span>b02822e1d9cb5263f3d06ffffdcd9793<span class="o">)</span> &lt;-&gt; <span class="m">1687099</span>
+<span class="nv">bigsql_version</span><span class="o">=</span><span class="k">$(</span>cat /opt/dv/current/version <span class="p">|</span> cut -d<span class="s1">&#39;=&#39;</span> -f2<span class="k">)</span>
 
-API endpoint:      https://cloud.ibm.com
-Region:            eu-de
-User:              ronan.bourlier@fr.ibm.com
-Account:           Ronan Bourlier<span class="s1">&#39;s Account (b02822e1d9cb5263f3d06ffffdcd9793) &lt;-&gt; 1687099</span>
-<span class="s1">Resource group:    No resource group targeted, use &#39;</span>ibmcloud target -g RESOURCE_GROUP<span class="err">&#39;</span>
-CF API endpoint:
-Org:
-Space:
+/usr/ibmpacks/bigsql/<span class="si">${</span><span class="nv">bigsql_version</span><span class="si">}</span>/bigsql/bigsql-cli/BIGSQL/package/scripts/bigsql-auto-logprune.sh -U db2inst1 -M Enable
 </code></pre></div>
-<p>List your clusters and get the ID your are interested in</p>
-<div class="highlight"><pre><span></span><code>$ ibmcloud oc cluster ls
-OK
-Name     ID                     State    Created        Workers   Location    Version                 Resource Group Name   Provider
-prod01   c7sh01kf0sdsn628u6cg   normal   <span class="m">3</span> weeks ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-prod02   c8ab34rf0s84mif4ffeg   normal   <span class="m">10</span> hours ago   <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-test01   c80pi0mf05u00m1elfgg   normal   <span class="m">2</span> weeks ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-test03   c69spr6f0iqs72cnn5jg   normal   <span class="m">3</span> months ago   <span class="m">8</span>         Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-test04   c7il1kkf09bln89tt09g   normal   <span class="m">1</span> month ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-</code></pre></div>
-<p>Get URL for API connect
-Select your cluster and get the URL</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>prod02
-<span class="nb">export</span> <span class="nv">MASTER_URL</span><span class="o">=</span><span class="k">$(</span>ibmcloud oc cluster get -c <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;/^URL:/ {print $2}&#39;</span><span class="k">)</span>
-</code></pre></div>
-<p>Create an API key for your environment</p>
-<div class="highlight"><pre><span></span><code>$ ibmcloud iam api-key-create prod02-ocp
-Creating API key prod02-ocp under b02822e1d9cb5263f3d06ffffdcd9793 as ronan.bourlier@fr.ibm.com...
-OK
-API key prod02-ocp was created
+<h2 id="in-cp4d-402-lets-install-a-script-to-remove-old-db2-logs">In CP4D 4.0.2-, let's install a script to remove old db2 logs</h2>
+<p>Add the following script to a file, say dv-db2-log-cleanup.sh, then run it at the backgroup</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> true<span class="p">;</span> <span class="k">do</span>
+  <span class="c1">#We need to restrict the file type otherwise find cmd may find Gaiandb db files that must be kept in the pod</span>
+  <span class="c1">#We keep all the db2diag*.log as they currently have a DIAGSIZE of 300MB</span>
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type f -name <span class="s2">&quot;*.log&quot;</span> ! -name <span class="s2">&quot;db2diag*.log&quot;</span> -exec ls -l <span class="o">{}</span> <span class="se">\;</span>
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type f -name <span class="s2">&quot;*.log&quot;</span> ! -name <span class="s2">&quot;db2diag*.log&quot;</span> -exec rm -f <span class="o">{}</span> <span class="se">\;</span>
 
-Please preserve the API key! It cannot be retrieved after it<span class="err">&#39;</span>s created.
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type f -name <span class="s2">&quot;*.txt&quot;</span> -exec ls -l <span class="o">{}</span> <span class="se">\;</span>
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type f -name <span class="s2">&quot;*.txt&quot;</span> -exec rm -f <span class="o">{}</span> <span class="se">\;</span>
 
-ID            ApiKey-e30537fa-01ab-422f-afbb-68e77dab3bfb
-Name          prod02-ocp
-Description
-Created At    <span class="m">2022</span>-02-22T21:01+0000
-API Key       0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7
-Locked        <span class="nb">false</span>
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type d -name <span class="s2">&quot;FODC*&quot;</span> -exec ls -d <span class="o">{}</span>  <span class="se">\;</span>
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type d -name <span class="s2">&quot;FODC*&quot;</span> -exec rm -rf <span class="o">{}</span>  <span class="se">\;</span>
+
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type f -name <span class="s2">&quot;core*&quot;</span> -exec ls -l <span class="o">{}</span>  <span class="se">\;</span>
+  find <span class="si">${</span><span class="nv">DIAGPATH</span><span class="si">}</span> -atime +1 -type f -name <span class="s2">&quot;core*&quot;</span> -exec rm -f <span class="o">{}</span>  <span class="se">\;</span>
+  sleep 24h <span class="c1">#run once every 24 hours</span>
+<span class="k">done</span>
 </code></pre></div>
-<p>Keep in a safe place the API Key, you cannot retrieve it after. Of course I changed mine in this example ;)</p>
-<p>Login with this key in IBM Cloud</p>
-<div class="highlight"><pre><span></span><code>ibmcloud login --apikey 0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7
+<div class="highlight"><pre><span></span><code>oc rsh c-db2u-dv-db2u-0 bash
+
+su - db2inst1
+
+vi dv-db2-log-cleanup.sh
+
+chmod +x dv-db2-log-cleanup.sh<span class="p">;</span> nohup ./dv-db2-log-cleanup.sh <span class="p">&amp;</span>
 </code></pre></div>
-<p>Get context for your cluster</p>
-<div class="highlight"><pre><span></span><code>ibmcloud oc cluster config -c prod02
-</code></pre></div>
-<p>Now you can login with your API key</p>
-<div class="highlight"><pre><span></span><code>oc login -u apikey -p 0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7 --server<span class="o">=</span>https://c100-e.eu-de.containers.cloud.ibm.com:31683
-</code></pre></div>
-<p>I replaced $MASTER_URL by its value to keep this login in a place to use it easily.</p>
+<p>This script can also be used to clean a db2 installation with a full disk, if you can still log in to it long enough.</p>
                 
               
               
@@ -481,7 +371,7 @@ Locked        <span class="nb">false</span>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../db2-roks/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../oc-client-install/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -490,25 +380,11 @@ Locked        <span class="nb">false</span>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Db2 on ROKS Gen2
+                Openshift Client
               </div>
             </div>
           </a>
         
-        
-          <a href="../db2-prune-logs/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Prune Db2 logs
-              </div>
-            </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
         
       </nav>
     </div>
