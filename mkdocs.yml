@@ -12,6 +12,7 @@ nav:
     - Home: index.md
     - Db2 on ROKS Gen2 : db2-roks.md
     - Openshift Client : oc-client-install.md
+    - Prune Db2 logs : db2-prune-logs.md
 markdown_extensions:
     - attr_list
 extra:

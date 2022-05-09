@@ -7,3 +7,4 @@ If you have any questions, comments or issues, please send me an email [ronan.bo
 
 * [Getting external access to Db2 database installed in CP4D on a ROKS VPC Gen2](db2-roks.md)
 * [OpenShift client installation and tips](oc-client-install.md)
+* [Clean Db2 logs in pods](db2-prune-logs.md)
