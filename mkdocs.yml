@@ -13,6 +13,7 @@ nav:
     - Db2 on ROKS Gen2 : db2-roks.md
     - Openshift Client : oc-client-install.md
     - Prune Db2 logs : db2-prune-logs.md
+    - CP4D versions : cp4d-version.md
 markdown_extensions:
     - attr_list
 extra:
