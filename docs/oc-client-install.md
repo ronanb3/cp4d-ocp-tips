@@ -120,7 +120,16 @@ export CLUSTER_NAME=prod02
 export MASTER_URL=$(ibmcloud oc cluster get -c $CLUSTER_NAME | awk '/^URL:/ {print $2}')
 ```
 
+With latest version of kubernetes plugin
+
+```sh
+export CLUSTER_NAME=prod02
+export MASTER_URL=$(ibmcloud oc cluster get -c $CLUSTER_NAME | awk '/^Master URL:/ {print $3}')
+```
+
 Create an API key for your environment
+
+Choose the name you want, I chose prod02-ocp in this example
 
 ```sh
 $ ibmcloud iam api-key-create prod02-ocp
