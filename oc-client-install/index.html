@@ -449,7 +449,12 @@ Select your cluster and get the URL</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>prod02
 <span class="nb">export</span> <span class="nv">MASTER_URL</span><span class="o">=</span><span class="k">$(</span>ibmcloud oc cluster get -c <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;/^URL:/ {print $2}&#39;</span><span class="k">)</span>
 </code></pre></div>
+<p>With latest version of kubernetes plugin</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>prod02
+<span class="nb">export</span> <span class="nv">MASTER_URL</span><span class="o">=</span><span class="k">$(</span>ibmcloud oc cluster get -c <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;/^Master URL:/ {print $3}&#39;</span><span class="k">)</span>
+</code></pre></div>
 <p>Create an API key for your environment</p>
+<p>Choose the name you want, I chose prod02-ocp in this example</p>
 <div class="highlight"><pre><span></span><code>$ ibmcloud iam api-key-create prod02-ocp
 Creating API key prod02-ocp under b02822e1d9cb5263f3d06ffffdcd9793 as ronan.bourlier@fr.ibm.com...
 OK
