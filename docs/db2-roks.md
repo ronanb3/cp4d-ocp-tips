@@ -108,6 +108,34 @@ If you need more details on the load balancer, you can find it in the VPC load b
 
 ![LB Created](img/LB_created.png)
 
+## DV connexion
+You can use the exact same method to access Data Virtualisation database externally
 
+Here is an example file
 
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-dv-2
+  annotations:
+    service.kubernetes.io/ibm-load-balancer-cloud-provider-ip-type: “public”
+spec:
+  ports:
+  - name: db
+    protocol: TCP
+    port: 52000
+    targetPort: 50000
+  - name: db-ssl
+    protocol: TCP
+    port: 52001
+    targetPort: 50001
+  type: LoadBalancer
+  selector:
+    app: db2u-dv
+    component: db2dv
+    formation_id: db2u-dv
+    role: db
+    type: engine
+```
 
