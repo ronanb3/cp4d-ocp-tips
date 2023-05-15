@@ -13,7 +13,7 @@
     
     
       
-        <title>Openshift Client - Tips for CP4D and OpenShift (Public)</title>
+        <title>HAProxy configuration for DV Db2 access - Tips for CP4D and OpenShift (Public)</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openshift-client-installation-en-tips" class="md-skip">
+        <a href="#dv-access-configuration-on-haproxy" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +100,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Openshift Client
+              HAProxy configuration for DV Db2 access
             
           </span>
         </div>
@@ -213,86 +213,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Openshift Client
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../oc-client-install/" class="md-nav__link">
         Openshift Client
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install-oc-client" class="md-nav__link">
-    Install oc client
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#bash-completion" class="md-nav__link">
-    bash completion
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-log-to-roks-openshift-from-cli-with-an-api-key" class="md-nav__link">
-    How to log to ROKS OpenShift from CLI with an API key
-  </a>
-  
-    <nav class="md-nav" aria-label="How to log to ROKS OpenShift from CLI with an API key">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-ibmcloud-command" class="md-nav__link">
-    Install ibmcloud command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-to-your-ibm-cloud" class="md-nav__link">
-    Login to your IBM Cloud
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -333,11 +258,59 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../dv-access-configuration-haproxy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          HAProxy configuration for DV Db2 access
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         HAProxy configuration for DV Db2 access
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dbeaver-configuration" class="md-nav__link">
+    DBeaver configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-db2-configuration" class="md-nav__link">
+    Check Db2 configuration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -369,43 +342,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-oc-client" class="md-nav__link">
-    Install oc client
+  <a href="#dbeaver-configuration" class="md-nav__link">
+    DBeaver configuration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#bash-completion" class="md-nav__link">
-    bash completion
+  <a href="#check-db2-configuration" class="md-nav__link">
+    Check Db2 configuration
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-log-to-roks-openshift-from-cli-with-an-api-key" class="md-nav__link">
-    How to log to ROKS OpenShift from CLI with an API key
-  </a>
-  
-    <nav class="md-nav" aria-label="How to log to ROKS OpenShift from CLI with an API key">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-ibmcloud-command" class="md-nav__link">
-    Install ibmcloud command
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#login-to-your-ibm-cloud" class="md-nav__link">
-    Login to your IBM Cloud
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -424,118 +370,71 @@
                   
 
 
-<h1 id="openshift-client-installation-en-tips">OpenShift client installation en tips</h1>
-<p>Here are the steps to install the OpenShift client for Linux and some tips ans tricks to manage connexions</p>
-<h2 id="install-oc-client">Install oc client</h2>
-<p>Navigate to the OpenShift Container Platform downloads page on the Red Hat Customer Portal.</p>
-<p>Select the appropriate version in the Version drop-down menu.</p>
-<p>Right Click on "Download Now next to the latest OpenShift Linux Client entry to get the link.</p>
-<p>Download the client with the link and wget. Don't forget the single quote around the URL to avoind issues.</p>
-<div class="highlight"><pre><span></span><code>wget <span class="s1">&#39;https://access.cdn.redhat.com/content/origin/files/sha256/28/2895de3bb4a9d9a68aa6e48c06ffaed21f81c7341a78e81fddd7c50eaca08c1b/oc-4.9.21-linux.tar.gz?user=c1223590990cfd8b164b125451ffffff&amp;_auth_=1645565566_0d7edf2fef35f7623fa3dd411c310666&#39;</span>
+<h1 id="dv-access-configuration-on-haproxy">DV Access configuration on HAProxy</h1>
+<p><img alt="Untitled" src="../img/Untitled.png" /></p>
+<div class="highlight"><pre><span></span><code>sudo vi /etc/haproxy/haproxy.cfg
 </code></pre></div>
-<p>Rename the file for easier management</p>
-<div class="highlight"><pre><span></span><code>mv oc-4.9.21-linux.tar.gz<span class="se">\?</span>user<span class="se">\=</span>c1223590990cfd8b164b125451ffffff<span class="se">\&amp;</span>_auth_<span class="se">\=</span>1645565566_0d7edf2fef35f7623fa3dd411c310666 oc-4.9.21-linux.tar.gz
-</code></pre></div>
-<p>(NB : I changed the content to avoid giving up my user id and auth)</p>
-<p>Unzip the file</p>
-<div class="highlight"><pre><span></span><code>tar xvzf oc-4.9.21-linux.tar.gz
-</code></pre></div>
-<p>Place the oc binary in a directory that is on your PATH.</p>
-<div class="highlight"><pre><span></span><code>sudo mv oc kubectl /usr/local/bin
-</code></pre></div>
-<p>Check that everything is working</p>
-<div class="highlight"><pre><span></span><code>$ oc version
-Client Version: <span class="m">4</span>.9.21
-error: You must be logged <span class="k">in</span> to the server <span class="o">(</span>Unauthorized<span class="o">)</span>
-</code></pre></div>
-<p>The error appears if you are not logged in so don't worry.</p>
-<p>Source : <a href="https://docs.openshift.com/container-platform/4.8/cli_reference/openshift_cli/getting-started-cli.html">Red Hat OpenShift documentation</a></p>
-<h2 id="bash-completion">bash completion</h2>
-<p>TBD</p>
-<h2 id="how-to-log-to-roks-openshift-from-cli-with-an-api-key">How to log to ROKS OpenShift from CLI with an API key</h2>
-<p>ROKS doesn't allow using <code>oc login</code> with username and password to log in in OpenShift. Here is the solution to get a <code>oc login</code> that works all the time without having to go through the Web interface every day.</p>
-<h3 id="install-ibmcloud-command">Install ibmcloud command</h3>
-<div class="highlight"><pre><span></span><code>curl -fsSL https://clis.cloud.ibm.com/install/linux <span class="p">|</span> sh
+<p>Add the following lines at the end</p>
+<div class="highlight"><pre><span></span><code>frontend dv-db2
+    <span class="nb">bind</span> *:31599
+    default_backend dv-db2
+    option tcplog
 
-ibmcloud plugin install container-service
+backend dv-db2
+    balance <span class="nb">source</span>
+    server worker1-http-router0 <span class="m">10</span>.3.67.21:31599 check
+    server worker2-http-router1 <span class="m">10</span>.3.67.22:31599 check
+    server worker3-http-router2 <span class="m">10</span>.3.67.23:31599 check
+    server worker4-http-router3 <span class="m">10</span>.3.67.24:31599 check
+    server worker5-http-router4 <span class="m">10</span>.3.67.25:31599 check
+</code></pre></div>
+<p>Restart and check HAProxy</p>
+<div class="highlight"><pre><span></span><code>$ sudo systemctl restart haproxy
 
-ibmcloud plugin install container-registry
+$ sudo systemctl status haproxy
+● haproxy.service - HAProxy Load Balancer
+   Loaded: loaded <span class="o">(</span>/usr/lib/systemd/system/haproxy.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: disabled<span class="o">)</span>
+  Drop-In: /etc/systemd/system/haproxy.service.d
+           └─restart.conf
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon <span class="m">2023</span>-01-16 <span class="m">03</span>:36:07 EST<span class="p">;</span> 5s ago
+  Process: <span class="m">2310709</span> <span class="nv">ExecStartPre</span><span class="o">=</span>/usr/sbin/haproxy -f <span class="nv">$CONFIG</span> -f <span class="nv">$CFGDIR</span> -c -q <span class="nv">$OPTIONS</span> <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span><span class="m">0</span>/SUCCESS<span class="o">)</span>
+ Main PID: <span class="m">2310712</span> <span class="o">(</span>haproxy<span class="o">)</span>
+    Tasks: <span class="m">2</span> <span class="o">(</span>limit: <span class="m">75278</span><span class="o">)</span>
+   Memory: <span class="m">10</span>.3M
+   CGroup: /system.slice/haproxy.service
+           ├─2310712 /usr/sbin/haproxy -Ws -f /etc/haproxy/haproxy.cfg -f /etc/haproxy/conf.d -p /run/haproxy.pid
+           └─2310716 /usr/sbin/haproxy -Ws -f /etc/haproxy/haproxy.cfg -f /etc/haproxy/conf.d -p /run/haproxy.pid
 
-ibmcloud plugin install observe-service
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> backend <span class="s1">&#39;openshift-api-server&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> frontend <span class="s1">&#39;machine-config-server&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> backend <span class="s1">&#39;machine-config-server&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> frontend <span class="s1">&#39;ingress-http&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> backend <span class="s1">&#39;ingress-http&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> frontend <span class="s1">&#39;ingress-https&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> backend <span class="s1">&#39;ingress-https&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> frontend <span class="s1">&#39;dv-db2&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm haproxy<span class="o">[</span><span class="m">2310712</span><span class="o">]</span>: <span class="o">[</span>WARNING<span class="o">]</span> <span class="m">015</span>/033607 <span class="o">(</span><span class="m">2310712</span><span class="o">)</span> : config : <span class="s1">&#39;option forwardfor&#39;</span> ignored <span class="k">for</span> backend <span class="s1">&#39;dv-db2&#39;</span> as it requires HTTP mode.
+Jan <span class="m">16</span> <span class="m">03</span>:36:07 bastion.cp4d.techsales.mop.ibm systemd<span class="o">[</span><span class="m">1</span><span class="o">]</span>: Started HAProxy Load Balancer.
 </code></pre></div>
-<h3 id="login-to-your-ibm-cloud">Login to your IBM Cloud</h3>
-<div class="highlight"><pre><span></span><code>$ ibmcloud login -sso
-API endpoint: https://cloud.ibm.com
-Region: eu-de
-
-Get a one-time code from https://identity-2.uk-south.iam.cloud.ibm.com/identity/passcode to proceed.
-Open the URL <span class="k">in</span> the default browser? <span class="o">[</span>Y/n<span class="o">]</span> &gt; n
-One-time code &gt;
-Authenticating...
-OK
-
-Select an account:
-<span class="m">1</span>. Ronan Bourlier<span class="s1">&#39;s Account (b02822e1d9cb5263f3d06ffffdcd9793) &lt;-&gt; 1687099</span>
-<span class="s1">2. WATSON CMCIC (e443898b246db06ab7af7a5ef0498e89)</span>
-<span class="s1">[...]</span>
-<span class="s1">Enter a number&gt; 1</span>
-<span class="s1">Targeted account Ronan Bourlier&#39;</span>s Account <span class="o">(</span>b02822e1d9cb5263f3d06ffffdcd9793<span class="o">)</span> &lt;-&gt; <span class="m">1687099</span>
-
-API endpoint:      https://cloud.ibm.com
-Region:            eu-de
-User:              ronan.bourlier@fr.ibm.com
-Account:           Ronan Bourlier<span class="s1">&#39;s Account (b02822e1d9cb5263f3d06ffffdcd9793) &lt;-&gt; 1687099</span>
-<span class="s1">Resource group:    No resource group targeted, use &#39;</span>ibmcloud target -g RESOURCE_GROUP<span class="err">&#39;</span>
-CF API endpoint:
-Org:
-Space:
+<p>Open Firewall</p>
+<div class="highlight"><pre><span></span><code>sudo firewall-cmd --list-ports
+sudo firewall-cmd --add-port<span class="o">=</span><span class="m">31599</span>/tcp --permanent
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
 </code></pre></div>
-<p>List your clusters and get the ID your are interested in</p>
-<div class="highlight"><pre><span></span><code>$ ibmcloud oc cluster ls
-OK
-Name     ID                     State    Created        Workers   Location    Version                 Resource Group Name   Provider
-prod01   c7sh01kf0sdsn628u6cg   normal   <span class="m">3</span> weeks ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-prod02   c8ab34rf0s84mif4ffeg   normal   <span class="m">10</span> hours ago   <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-test01   c80pi0mf05u00m1elfgg   normal   <span class="m">2</span> weeks ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-test03   c69spr6f0iqs72cnn5jg   normal   <span class="m">3</span> months ago   <span class="m">8</span>         Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
-test04   c7il1kkf09bln89tt09g   normal   <span class="m">1</span> month ago    <span class="m">11</span>        Frankfurt   <span class="m">4</span>.8.26_1542_openshift   default               vpc-gen2
+<p>Test connexion</p>
+<div class="highlight"><pre><span></span><code>$ nc -zv cpd-cpd452.apps.cp4d.techsales.mop.ibm <span class="m">31599</span>
+Ncat: Version <span class="m">7</span>.70 <span class="o">(</span> https://nmap.org/ncat <span class="o">)</span>
+Ncat: Connected to <span class="m">10</span>.3.67.1:3159.
+Ncat: <span class="m">0</span> bytes sent, <span class="m">0</span> bytes received <span class="k">in</span> <span class="m">0</span>.01 seconds.
 </code></pre></div>
-<p>Get URL for API connect
-Select your cluster and get the URL</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>prod02
-<span class="nb">export</span> <span class="nv">MASTER_URL</span><span class="o">=</span><span class="k">$(</span>ibmcloud oc cluster get -c <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;/^URL:/ {print $2}&#39;</span><span class="k">)</span>
+<h2 id="dbeaver-configuration">DBeaver configuration</h2>
+<p><img alt="Untitled" src="../img/Untitled%201.png" /></p>
+<p>Don’t set up the <code>securityMechanism</code> parameter as it didn’t work for me. With just this configuration it works.</p>
+<h2 id="check-db2-configuration">Check Db2 configuration</h2>
+<div class="highlight"><pre><span></span><code>db2set -all
 </code></pre></div>
-<p>With latest version of kubernetes plugin</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">CLUSTER_NAME</span><span class="o">=</span>prod02
-<span class="nb">export</span> <span class="nv">MASTER_URL</span><span class="o">=</span><span class="k">$(</span>ibmcloud oc cluster get -c <span class="nv">$CLUSTER_NAME</span> <span class="p">|</span> awk <span class="s1">&#39;/^Master URL:/ {print $3}&#39;</span><span class="k">)</span>
-</code></pre></div>
-<p>Create an API key for your environment</p>
-<p>Choose the name you want, I chose prod02-ocp in this example</p>
-<div class="highlight"><pre><span></span><code>$ ibmcloud iam api-key-create prod02-ocp
-Creating API key prod02-ocp under b02822e1d9cb5263f3d06ffffdcd9793 as ronan.bourlier@fr.ibm.com...
-OK
-API key prod02-ocp was created
-
-Please preserve the API key! It cannot be retrieved after it<span class="err">&#39;</span>s created.
-
-ID            ApiKey-e30537fa-01ab-422f-afbb-68e77dab3bfb
-Name          prod02-ocp
-Description
-Created At    <span class="m">2022</span>-02-22T21:01+0000
-API Key       0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7
-Locked        <span class="nb">false</span>
-</code></pre></div>
-<p>Keep in a safe place the API Key, you cannot retrieve it after. Of course I changed mine in this example ;)</p>
-<p>Login with this key in IBM Cloud</p>
-<div class="highlight"><pre><span></span><code>ibmcloud login --apikey 0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7
-</code></pre></div>
-<p>Get context for your cluster</p>
-<div class="highlight"><pre><span></span><code>ibmcloud oc cluster config -c prod02
-</code></pre></div>
-<p>Now you can login with your API key</p>
-<div class="highlight"><pre><span></span><code>oc login -u apikey -p 0h6teIifwifCAD61qyXXXX9lQZzQ0RkkNnvYzmaGsTQ7 --server<span class="o">=</span>https://c100-e.eu-de.containers.cloud.ibm.com:31683
-</code></pre></div>
-<p>I replaced $MASTER_URL by its value to keep this login in a place to use it easily.</p>
+<p>Check DB2COMM includes <code>TCPIP</code></p>
 
 
 
@@ -556,7 +455,7 @@ Locked        <span class="nb">false</span>
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../db2-roks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Db2 on ROKS Gen2" rel="prev">
+        <a href="../cp4d-version/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CP4D versions" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -565,26 +464,11 @@ Locked        <span class="nb">false</span>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Db2 on ROKS Gen2
+              CP4D versions
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../db2-prune-logs/" class="md-footer__link md-footer__link--next" aria-label="Next: Prune Db2 logs" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Prune Db2 logs
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
